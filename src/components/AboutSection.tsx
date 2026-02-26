@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Lightbulb, Users, Shield, Clock } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -9,7 +10,7 @@ const highlights = [
 ];
 
 const AboutSection = () => (
-  <section id="about" className="section-padding bg-background">
+  <section className="section-padding bg-background">
     <div className="container-narrow mx-auto">
       <ScrollReveal>
         <div className="text-center mb-16">
@@ -45,18 +46,21 @@ const AboutSection = () => (
         </ScrollReveal>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        {highlights.map((item, i) => (
-          <ScrollReveal key={item.title} delay={i * 0.1}>
-            <div className="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow text-center">
-              <div className="w-12 h-12 rounded-lg bg-accent flex items-center justify-center mx-auto mb-4">
-                <item.icon className="w-6 h-6 text-accent-foreground" />
+      {/* Dark highlight cards */}
+      <div className="bg-foreground rounded-2xl p-8 md:p-10 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {highlights.map((item, i) => (
+            <ScrollReveal key={item.title} delay={i * 0.1}>
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h4 className="font-heading font-semibold text-background mb-1">{item.title}</h4>
+                <p className="text-sm text-background/60">{item.desc}</p>
               </div>
-              <h4 className="font-heading font-semibold text-foreground mb-1">{item.title}</h4>
-              <p className="text-sm text-muted-foreground">{item.desc}</p>
-            </div>
-          </ScrollReveal>
-        ))}
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
 
       <ScrollReveal>
