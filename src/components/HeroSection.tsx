@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 import heroImage from "@/assets/hero-illustration.png";
 
 const HeroSection = () => (
-  <section id="home" className="gradient-hero min-h-screen flex items-center pt-20">
+  <section className="gradient-hero min-h-[calc(100vh-5rem)] flex items-center">
     <div className="container-narrow mx-auto px-4">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <ScrollReveal>
@@ -17,10 +18,10 @@ const HeroSection = () => (
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <Button asChild size="lg">
-                <a href="#contact">Get Free Consultation</a>
+                <Link to="/contact">Get Free Consultation</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="#work">View Our Work</a>
+                <Link to="/work">View Our Work</Link>
               </Button>
             </div>
           </div>
