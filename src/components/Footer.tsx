@@ -29,7 +29,7 @@ const Footer = () => (
     <div className="container-narrow mx-auto">
       <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
         <div className="lg:col-span-2">
-          <img src={logo} alt="NetWave Digital - Software Development Company" className="h-14 mb-4 brightness-0 invert" />
+          <img src={logo} alt="NetWave Digital - Software Development Company" className="h-20 mb-4 brightness-0 invert" />
           <p className="text-sm text-background/70 mb-3">
             NetWave Digital is a leading software development, web design, mobile app development, and digital marketing company based in Bokaro Steel City, Jharkhand, India.
           </p>
@@ -37,9 +37,10 @@ const Footer = () => (
             Custom Software · Web Development · App Development · SEO · Digital Marketing
           </p>
           <div className="flex gap-3">
-            {["Facebook", "Twitter", "LinkedIn", "Instagram"].map((s) => (
-              <a key={s} href="#" className="text-xs text-background/50 hover:text-primary transition-colors">{s}</a>
-            ))}
+            <a href="https://www.linkedin.com/in/netwave-digital-777a153b3" target="_blank" rel="noopener noreferrer" className="text-xs text-background/50 hover:text-primary transition-colors">LinkedIn</a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-background/50 hover:text-primary transition-colors">Facebook</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-background/50 hover:text-primary transition-colors">Instagram</a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="text-xs text-background/50 hover:text-primary transition-colors">Twitter</a>
           </div>
         </div>
 
