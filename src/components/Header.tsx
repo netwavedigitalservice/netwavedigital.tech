@@ -36,7 +36,7 @@ const Header = () => {
     >
       <div className="container-narrow mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="NetWave Digital - Software Development Company" className="h-12 md:h-14 w-auto" />
+          <img src={logo} alt="NetWave Digital - Software Development Company" className="h-16 md:h-20 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
