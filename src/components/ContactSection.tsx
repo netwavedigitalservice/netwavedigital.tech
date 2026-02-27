@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,12 +16,13 @@ const contactSchema = z.object({
 
 const services = [
   "Custom Software Development",
-  "Web Development",
+  "Website Design & Development",
   "Mobile App Development",
-  "E-Commerce Solutions",
+  "E-Commerce Website Development",
   "UI/UX Design",
-  "Digital Marketing",
+  "Digital Marketing & SEO",
   "IT Consulting",
+  "Hire Dedicated Developers",
   "Other",
 ];
 
@@ -79,8 +80,13 @@ const ContactSection = () => {
       <div className="container-narrow mx-auto">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Contact</p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Get In Touch</h2>
+            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Contact Us</p>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+              Get a Free Software Development Consultation
+            </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+              Have a project idea? Need a website, mobile app, or custom software? Contact NetWave Digital today for a free consultation and competitive quote.
+            </p>
           </div>
         </ScrollReveal>
 
@@ -131,7 +137,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <Textarea
-                  placeholder="Your Message *"
+                  placeholder="Tell us about your project *"
                   rows={5}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -144,7 +150,7 @@ const ContactSection = () => {
                 {status === "sending" ? "Sending message…" : "Send Message"}
               </Button>
               {status === "success" && (
-                <p className="text-sm font-medium text-green-600">✅ Message Sent Successfully!</p>
+                <p className="text-sm font-medium text-green-600">✅ Message Sent Successfully! We'll get back to you within 24 hours.</p>
               )}
               {status === "error" && (
                 <p className="text-sm font-medium text-destructive">❌ Something went wrong. Please try again.</p>
@@ -177,14 +183,23 @@ const ContactSection = () => {
                   <MapPin className="w-5 h-5 text-accent-foreground" />
                 </div>
                 <div>
-                  <h4 className="font-heading font-semibold text-foreground text-sm">Address</h4>
-                  <p className="text-sm text-muted-foreground">Main Road Balidih, Bokaro Steel City, Jharkhand 827014</p>
+                  <h4 className="font-heading font-semibold text-foreground text-sm">Office Address</h4>
+                  <p className="text-sm text-muted-foreground">Main Road Balidih, Bokaro Steel City, Jharkhand 827014, India</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center shrink-0">
+                  <Clock className="w-5 h-5 text-accent-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-heading font-semibold text-foreground text-sm">Business Hours</h4>
+                  <p className="text-sm text-muted-foreground">Mon - Sat: 9:00 AM - 7:00 PM (IST)</p>
                 </div>
               </div>
 
               <div className="rounded-xl overflow-hidden shadow-card mt-6">
                 <iframe
-                  title="NetWave Digital Office Location"
+                  title="NetWave Digital Office - Software Development Company Bokaro"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.0!2d86.055703!3d23.667359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQwJzAyLjUiTiA4NsKwMDMnMjAuNSJF!5e0!3m2!1sen!2sin!4v1700000000000"
                   width="100%"
                   height="220"
@@ -196,7 +211,7 @@ const ContactSection = () => {
               </div>
 
               <a
-                href={`https://wa.me/917481947649?text=${encodeURIComponent("Hi, I'm interested in your services!")}`}
+                href={`https://wa.me/917481947649?text=${encodeURIComponent("Hi NetWave Digital, I'm interested in your software development services!")}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
