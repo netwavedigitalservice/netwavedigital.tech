@@ -1,45 +1,52 @@
-import { useState } from "react";
 import {
-  Monitor, Smartphone, Server, Palette, ShoppingCart, FileText, Users,
-  Code, Globe, BarChart3, Settings, Database, Bot, Layers, Cpu
+  Monitor, Smartphone, Server, Palette, ShoppingCart, FileText, Users
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const categories = [
   {
-    title: "IT Services",
+    title: "IT Services & Custom Software",
     icon: Monitor,
-    items: ["Custom Software", "Full Stack Web Development", "IT Consulting", "QA & Testing", "Digital Marketing", "DevOps", "Data as a Service"],
+    desc: "End-to-end software development and IT consulting for businesses.",
+    items: ["Custom Software Development", "Full Stack Web Development", "IT Consulting & Strategy", "QA & Testing", "Digital Marketing & SEO", "DevOps & Cloud", "Data as a Service"],
   },
   {
-    title: "Mobile Development",
+    title: "Mobile App Development",
     icon: Smartphone,
-    items: ["Mobile App Development", "iOS (Swift)", "Android", "React Native", "Flutter", "Ionic"],
+    desc: "Native and cross-platform mobile apps for iOS and Android.",
+    items: ["Mobile App Development", "iOS App (Swift)", "Android App (Kotlin)", "React Native Apps", "Flutter App Development", "Ionic Hybrid Apps"],
   },
   {
     title: "Backend Development",
     icon: Server,
-    items: ["AI Chatbot", "PHP", "Laravel", "CodeIgniter", "Symfony", "NodeJS", "SpringBoot"],
+    desc: "Robust server-side solutions and AI-powered applications.",
+    items: ["AI Chatbot Development", "PHP Development", "Laravel Framework", "CodeIgniter", "Symfony", "Node.js Development", "SpringBoot"],
   },
   {
     title: "Frontend Development",
     icon: Palette,
-    items: ["Angular", "ReactJS", "VueJS"],
+    desc: "Modern, responsive UI development with top JavaScript frameworks.",
+    items: ["Angular Development", "ReactJS Development", "VueJS Development"],
   },
   {
-    title: "E-Commerce Solutions",
+    title: "E-Commerce Development",
     icon: ShoppingCart,
-    items: ["Magento", "WooCommerce", "Shopify"],
+    desc: "Complete online store solutions to sell products worldwide.",
+    items: ["Magento Development", "WooCommerce Store", "Shopify Store Development"],
   },
   {
-    title: "CMS Solutions",
+    title: "CMS & WordPress Development",
     icon: FileText,
-    items: ["Custom CMS", "WordPress Development"],
+    desc: "Content management systems and WordPress website development.",
+    items: ["Custom CMS Development", "WordPress Website Development"],
   },
   {
-    title: "Hiring Services",
+    title: "Dedicated Hiring Services",
     icon: Users,
-    items: ["Dedicated Development Teams", "CTO Services", "CMO Services", "Tech Agency Solutions"],
+    desc: "Hire skilled developers and tech leaders for your projects.",
+    items: ["Dedicated Development Teams", "CTO as a Service", "CMO as a Service", "Tech Agency Partnership"],
   },
 ];
 
@@ -50,23 +57,24 @@ const ServicesSection = () => (
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Our Services</p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-            What We Offer
+            Software Development & IT Services
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-            Comprehensive technology solutions tailored to your business needs.
+            From custom software development to mobile app development, website design, e-commerce solutions, and digital marketing — NetWave Digital offers comprehensive technology services tailored to your business goals.
           </p>
         </div>
       </ScrollReveal>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {categories.map((cat, i) => (
           <ScrollReveal key={cat.title} delay={i * 0.08}>
-            <div className="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1 h-full">
+            <div className="bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1 h-full flex flex-col">
               <div className="w-11 h-11 rounded-lg bg-accent flex items-center justify-center mb-4">
                 <cat.icon className="w-5 h-5 text-accent-foreground" />
               </div>
-              <h3 className="font-heading font-semibold text-foreground text-lg mb-3">{cat.title}</h3>
-              <ul className="space-y-1.5">
+              <h3 className="font-heading font-semibold text-foreground text-lg mb-2">{cat.title}</h3>
+              <p className="text-xs text-muted-foreground mb-3">{cat.desc}</p>
+              <ul className="space-y-1.5 flex-1">
                 {cat.items.map((item) => (
                   <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
@@ -78,6 +86,21 @@ const ServicesSection = () => (
           </ScrollReveal>
         ))}
       </div>
+
+      {/* CTA */}
+      <ScrollReveal>
+        <div className="bg-foreground rounded-2xl p-8 md:p-10 text-center">
+          <h3 className="font-heading text-2xl font-bold text-background mb-3">
+            Need Custom Software or App Development?
+          </h3>
+          <p className="text-background/60 mb-6 max-w-xl mx-auto">
+            Whether you need a website, mobile app, e-commerce store, or custom software — our expert developers are ready to build it. Get a free consultation and quote today.
+          </p>
+          <Button asChild size="lg">
+            <Link to="/contact">Get Free Quote</Link>
+          </Button>
+        </div>
+      </ScrollReveal>
     </div>
   </section>
 );

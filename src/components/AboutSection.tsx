@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
-import { Lightbulb, Users, Shield, Clock } from "lucide-react";
+import { Lightbulb, Users, Shield, Clock, Award, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const highlights = [
-  { icon: Lightbulb, title: "Innovation Driven", desc: "Cutting-edge solutions using the latest technologies." },
-  { icon: Users, title: "Client Focused", desc: "Your success is our priority at every step." },
-  { icon: Shield, title: "Secure & Scalable", desc: "Enterprise-grade security with scalable architecture." },
-  { icon: Clock, title: "On-Time Delivery", desc: "We deliver quality projects within deadlines." },
+  { icon: Lightbulb, title: "Innovation Driven", desc: "Cutting-edge software development solutions using the latest technologies and frameworks." },
+  { icon: Users, title: "Client Focused", desc: "Your business success is our priority — from planning to post-launch support." },
+  { icon: Shield, title: "Secure & Scalable", desc: "Enterprise-grade security with cloud-ready, scalable software architecture." },
+  { icon: Clock, title: "On-Time Delivery", desc: "We deliver quality web and app development projects within committed deadlines." },
+];
+
+const stats = [
+  { value: "50+", label: "Projects Delivered" },
+  { value: "30+", label: "Happy Clients" },
+  { value: "15+", label: "Technologies" },
+  { value: "99%", label: "Client Satisfaction" },
 ];
 
 const AboutSection = () => (
@@ -14,40 +22,64 @@ const AboutSection = () => (
     <div className="container-narrow mx-auto">
       <ScrollReveal>
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">About Us</p>
+          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">About NetWave Digital</p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-            Who We Are
+            Your Trusted Software Development Partner
           </h2>
+          <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+            We are a full-service IT company specializing in custom software development, website design, mobile app development, digital marketing, and IT consulting.
+          </p>
         </div>
       </ScrollReveal>
 
       <div className="grid md:grid-cols-2 gap-12 mb-16">
         <ScrollReveal>
           <div className="space-y-4">
-            <h3 className="font-heading text-xl font-semibold text-foreground">Our Company</h3>
+            <h3 className="font-heading text-xl font-semibold text-foreground">Who We Are</h3>
             <p className="text-muted-foreground leading-relaxed">
-              NetWave Digital is a technology company specializing in custom software development, web & mobile applications, and digital transformation. Based in Bokaro Steel City, Jharkhand, we serve clients globally with innovative and reliable tech solutions.
+              <strong className="text-foreground">NetWave Digital</strong> is a leading software development and IT consulting company based in Bokaro Steel City, Jharkhand, India. We specialize in building custom software, responsive websites, cross-platform mobile applications, e-commerce platforms, and data-driven digital marketing campaigns for businesses of all sizes.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Founded by <span className="font-semibold text-foreground">Sagar</span>, a passionate technologist with a vision to empower businesses through smart digital solutions. With deep expertise in full-stack development and a commitment to quality, Sagar leads NetWave Digital in delivering excellence.
+              Founded by <span className="font-semibold text-foreground">Sagar</span>, a passionate full-stack developer and tech entrepreneur, NetWave Digital was built with a vision to make world-class software development accessible and affordable for startups, SMEs, and enterprises across India and globally.
             </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Button asChild size="sm">
+                <Link to="/services">Explore Our Services</Link>
+              </Button>
+              <Button asChild size="sm" variant="outline">
+                <Link to="/contact">Talk to Our Experts</Link>
+              </Button>
+            </div>
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.15}>
           <div className="space-y-4">
-            <h3 className="font-heading text-xl font-semibold text-foreground">Mission & Vision</h3>
+            <h3 className="font-heading text-xl font-semibold text-foreground">Our Mission & Vision</h3>
             <p className="text-muted-foreground leading-relaxed">
-              <span className="font-semibold text-foreground">Mission:</span> To deliver innovative, scalable, and secure digital solutions that accelerate business growth and transform ideas into impactful products.
+              <span className="font-semibold text-foreground">Mission:</span> To deliver innovative, scalable, and secure digital solutions — including custom software, web applications, mobile apps, and digital marketing strategies — that accelerate business growth and transform ideas into impactful products.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              <span className="font-semibold text-foreground">Vision:</span> To become a globally trusted technology partner known for quality, innovation, and client success.
+              <span className="font-semibold text-foreground">Vision:</span> To become a globally trusted technology partner known for quality software engineering, innovative app development, and result-oriented digital marketing services.
             </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              {stats.map((stat) => (
+                <div key={stat.label} className="bg-section-alt rounded-lg p-4 text-center">
+                  <p className="font-heading text-2xl font-bold text-primary">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </ScrollReveal>
       </div>
 
       {/* Dark highlight cards */}
       <div className="bg-foreground rounded-2xl p-8 md:p-10 mb-16">
+        <ScrollReveal>
+          <h3 className="font-heading text-xl font-semibold text-background text-center mb-8">Why Choose NetWave Digital for Software Development?</h3>
+        </ScrollReveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((item, i) => (
             <ScrollReveal key={item.title} delay={i * 0.1}>
@@ -64,9 +96,13 @@ const AboutSection = () => (
       </div>
 
       <ScrollReveal>
+        <div className="text-center mb-6">
+          <h3 className="font-heading text-xl font-semibold text-foreground mb-2">Visit Our Office</h3>
+          <p className="text-sm text-muted-foreground">Main Road Balidih, Bokaro Steel City, Jharkhand 827014, India</p>
+        </div>
         <div className="rounded-xl overflow-hidden shadow-card">
           <iframe
-            title="NetWave Digital Location"
+            title="NetWave Digital Office Location - Software Development Company in Bokaro"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.0!2d86.055703!3d23.667359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQwJzAyLjUiTiA4NsKwMDMnMjAuNSJF!5e0!3m2!1sen!2sin!4v1700000000000"
             width="100%"
             height="300"
