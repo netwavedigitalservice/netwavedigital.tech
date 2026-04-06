@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ProcessIllustration } from "@/assets/illustrations";
 
 const steps = [
   { step: "01", title: "Requirement Gathering", desc: "We deeply understand your business goals, target audience, and project scope to define a clear software development roadmap." },
@@ -57,6 +58,33 @@ const ProcessSection = () => (
           <Button asChild size="lg">
             <Link to="/contact">Start Your Project Today</Link>
           </Button>
+        </div>
+      </ScrollReveal>
+
+      {/* Process Visual Section */}
+      <ScrollReveal>
+        <div className="mt-16 bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">
+                Our Development Methodology
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                We follow proven agile methodologies to ensure transparency, flexibility, and timely delivery. Our iterative approach allows for continuous improvement and client involvement at every stage.
+              </p>
+              <ul className="space-y-2">
+                {["Agile Development", "Regular Sprint Reviews", "CI/CD Pipeline", "Automated Testing", "Source Code Ownership"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <ProcessIllustration />
+            </div>
+          </div>
         </div>
       </ScrollReveal>
     </div>

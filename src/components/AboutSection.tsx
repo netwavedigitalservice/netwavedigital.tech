@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { Lightbulb, Users, Shield, Clock, Award, TrendingUp } from "lucide-react";
+import { Lightbulb, Users, Shield, Clock, Award, TrendingUp, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
+import { AboutIllustration } from "@/assets/illustrations";
 
 const highlights = [
   { icon: Lightbulb, title: "Innovation Driven", desc: "Cutting-edge software development solutions using the latest technologies and frameworks." },
@@ -44,7 +45,7 @@ const AboutSection = () => (
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Button asChild size="sm">
-                <Link to="/services">Explore Our Services</Link>
+                <Link to="/services">Explore Our Services <ArrowRight className="w-4 h-4 ml-1" /></Link>
               </Button>
               <Button asChild size="sm" variant="outline">
                 <Link to="/contact">Talk to Our Experts</Link>
@@ -75,6 +76,32 @@ const AboutSection = () => (
         </ScrollReveal>
       </div>
 
+      {/* About Visual Section with Illustration */}
+      <ScrollReveal>
+        <div className="bg-foreground rounded-2xl p-8 md:p-12 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="order-2 md:order-1">
+              <AboutIllustration />
+            </div>
+            <div className="order-1 md:order-2 space-y-4">
+              <h3 className="font-heading text-2xl font-bold text-background">
+                Technology Excellence
+              </h3>
+              <p className="text-background/70 leading-relaxed">
+                We leverage cutting-edge technologies to build robust, scalable, and future-proof digital solutions. Our expertise spans across multiple platforms and frameworks.
+              </p>
+              <div className="flex flex-wrap gap-2 pt-2">
+                {["React", "Node.js", "Flutter", "AWS", "Shopify", "AI/ML", "PHP", "Laravel", "Vue.js", "MongoDB", "PostgreSQL", "Firebase"].map((tech) => (
+                  <span key={tech} className="px-3 py-1 bg-background/10 text-background text-xs rounded-full">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
       {/* Dark highlight cards */}
       <div className="bg-foreground rounded-2xl p-8 md:p-10 mb-16">
         <ScrollReveal>
@@ -95,6 +122,8 @@ const AboutSection = () => (
         </div>
       </div>
 
+      {/* Visit Our Office section - temporarily hidden from homepage */}
+      {/* 
       <ScrollReveal>
         <div className="text-center mb-6">
           <h3 className="font-heading text-xl font-semibold text-foreground mb-2">Visit Our Office</h3>
@@ -113,6 +142,7 @@ const AboutSection = () => (
           />
         </div>
       </ScrollReveal>
+      */}
     </div>
   </section>
 );

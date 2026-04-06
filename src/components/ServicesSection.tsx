@@ -1,9 +1,10 @@
 import {
-  Monitor, Smartphone, Server, Palette, ShoppingCart, FileText, Users
+  Monitor, Smartphone, Server, Palette, ShoppingCart, FileText, Users, ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
+import { ServicesIllustration } from "@/assets/illustrations";
 
 const categories = [
   {
@@ -97,8 +98,40 @@ const ServicesSection = () => (
             Whether you need a website, mobile app, e-commerce store, or custom software — our expert developers are ready to build it. Get a free consultation and quote today.
           </p>
           <Button asChild size="lg">
-            <Link to="/contact">Get Free Quote</Link>
+            <Link to="/contact">Get Free Quote <ArrowRight className="w-4 h-4 ml-1" /></Link>
           </Button>
+        </div>
+      </ScrollReveal>
+
+      {/* Services Visual Section */}
+      <ScrollReveal>
+        <div className="mt-16 bg-card rounded-2xl p-8 md:p-12 shadow-card border border-border">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="order-2 md:order-1 space-y-4">
+              <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">
+                Comprehensive IT Solutions
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                From concept to deployment, we provide end-to-end technology solutions that help businesses transform digitally. Our team specializes in creating scalable, secure, and high-performance applications.
+              </p>
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                {[
+                  { title: "Web Development", desc: "Modern responsive websites" },
+                  { title: "Mobile Apps", desc: "iOS & Android apps" },
+                  { title: "E-Commerce", desc: "Online stores" },
+                  { title: "Digital Marketing", desc: "SEO & branding" }
+                ].map((item) => (
+                  <div key={item.title} className="bg-section-alt rounded-lg p-3">
+                    <p className="font-semibold text-foreground text-sm">{item.title}</p>
+                    <p className="text-xs text-muted-foreground">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <ServicesIllustration />
+            </div>
+          </div>
         </div>
       </ScrollReveal>
     </div>

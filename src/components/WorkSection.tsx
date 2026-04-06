@@ -1,10 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ExternalLink, ShoppingBag, Globe, Building2, GraduationCap, UtensilsCrossed, Briefcase, Eye, ShoppingCart } from "lucide-react";
+import { ExternalLink, ShoppingBag, Globe, Building2, GraduationCap, UtensilsCrossed, Briefcase, Eye, ShoppingCart, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
+import { WorkIllustration } from "@/assets/illustrations";
 
 const readyToSell = [
+  { 
+    title: "Event Management", 
+    type: "Events", 
+    desc: "Event management website successfully SOLD to Sagar Tent House - live demo of proven effectiveness with real bookings.", 
+    price: "₹9,999",
+    client: "Sagar Tent House",
+    sold: true,
+    icon: Globe,
+    features: ["Event Bookings", "Venue Management", "Client Portal", "Responsive Design"],
+    color: "from-rose-500 to-pink-500",
+    demoUrl: "https://sagartenthouse.netlify.app"
+  },
+
   { 
     title: "E-Commerce Store", 
     type: "E-Commerce", 
@@ -12,7 +26,8 @@ const readyToSell = [
     price: "₹14,999",
     icon: ShoppingCart,
     features: ["Payment Gateway", "Product Management", "Order Tracking", "Admin Panel"],
-    color: "from-primary to-blue-600"
+    color: "from-primary to-blue-600",
+    demoUrl: "https://ecommerce-netwavedigital.netlify.app"
   },
   { 
     title: "Real Estate Website", 
@@ -21,7 +36,8 @@ const readyToSell = [
     price: "₹12,999",
     icon: Building2,
     features: ["Property Listings", "Search Filters", "Agent Profiles", "Inquiry Forms"],
-    color: "from-emerald-500 to-teal-600"
+    color: "from-emerald-500 to-teal-600",
+    demoUrl: "https://realestate-netwavedigital.netlify.app/"
   },
   { 
     title: "School Management System", 
@@ -30,7 +46,8 @@ const readyToSell = [
     price: "₹19,999",
     icon: GraduationCap,
     features: ["Student Management", "Attendance System", "Fee Tracking", "Report Cards"],
-    color: "from-violet-500 to-purple-600"
+    color: "from-violet-500 to-purple-600",
+    inProgress: true
   },
   { 
     title: "Restaurant Website", 
@@ -39,16 +56,18 @@ const readyToSell = [
     price: "₹9,999",
     icon: UtensilsCrossed,
     features: ["Online Ordering", "Table Reservations", "Menu Management", "Delivery Tracking"],
-    color: "from-orange-500 to-red-500"
+    color: "from-orange-500 to-red-500",
+    demoUrl: "https://restaurant-netwavedigital.netlify.app/"
   },
   { 
-    title: "Portfolio Website", 
-    type: "Personal", 
-    desc: "Stunning portfolio to showcase your work with blog and contact features.", 
+    title: "Tuition Website", 
+    type: "Education", 
+    desc: "Professional tuition/coaching website with online admission, course listings, and student portal.", 
     price: "₹6,999",
-    icon: Briefcase,
-    features: ["Project Showcase", "Blog Section", "Contact Form", "Responsive Design"],
-    color: "from-cyan-500 to-blue-500"
+    icon: GraduationCap,
+    features: ["Online Admission", "Course Listings", "Student Portal", "Responsive Design"],
+    color: "from-cyan-500 to-blue-500",
+    demoUrl: "https://tution-netwavedigital.netlify.app/"
   },
   { 
     title: "Business Website", 
@@ -118,8 +137,19 @@ const WorkSection = () => {
                   {/* Gradient header */}
                   <div className={`h-36 bg-gradient-to-br ${item.color} flex items-center justify-center relative overflow-hidden`}>
                     <item.icon className="w-16 h-16 text-white/90" />
-                    <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                    <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
                       <span className="text-xs font-semibold text-white">{item.type}</span>
+{item.inProgress && (
+                        <span className="text-[10px] font-bold text-amber-300 bg-amber-500/30 px-1.5 py-0.5 rounded">In Progress</span>
+                      )}
+                      {item.sold && (
+                        <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/30 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+                          SOLD <span className="text-xs">✓</span>
+                        </span>
+                      )}
+                      {item.client && (
+                        <span className="text-xs text-white/90 bg-black/20 px-2 py-0.5 rounded-full"> {item.client}</span>
+                      )}
                     </div>
                   </div>
                   
@@ -139,9 +169,17 @@ const WorkSection = () => {
                     <div className="flex items-center justify-between pt-3 border-t border-background/10">
                       <span className="font-heading font-bold text-xl text-primary">{item.price}</span>
                       <div className="flex gap-2">
-                        <Button size="sm" variant="outline" className="border-background/20 text-background hover:bg-background/10 gap-1">
-                          <Eye className="w-3.5 h-3.5" /> Demo
-                        </Button>
+                        {item.demoUrl ? (
+                          <a href={item.demoUrl} target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" variant="outline" className="border-background/20 text-white bg-transparent hover:bg-background/20 hover:text-white gap-1">
+                              <Eye className="w-3.5 h-3.5" /> Demo
+                            </Button>
+                          </a>
+                        ) : (
+                          <Button size="sm" variant="outline" className="border-background/20 text-white bg-transparent hover:bg-background/20 hover:text-white gap-1">
+                            <Eye className="w-3.5 h-3.5" /> Demo
+                          </Button>
+                        )}
                         <Button size="sm" className="gap-1">
                           <ShoppingBag className="w-3.5 h-3.5" /> Buy
                         </Button>
@@ -154,7 +192,8 @@ const WorkSection = () => {
           </div>
         </div>
 
-        {/* Client Projects */}
+        {/* Delivered Client Projects section - temporarily disabled (fake projects, enable when real projects are completed) */}
+        {/*
         <ScrollReveal>
           <h3 className="font-heading text-2xl font-semibold text-foreground mb-6">Delivered Client Projects</h3>
         </ScrollReveal>
@@ -192,6 +231,8 @@ const WorkSection = () => {
             </ScrollReveal>
           ))}
         </div>
+        */}
+        
       </div>
     </section>
   );

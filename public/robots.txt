@@ -1,14 +1,28 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://netwavedigital.com/sitemap.xml
+
+# Crawl-delay (optional, for respectful crawling)
+Crawl-delay: 1
+
+# Disallow admin/private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*.jsx$
+Disallow: /*.tsx$
+
+# Allow important paths
+Allow: /$
+Allow: /about
+Allow: /services
+Allow: /process
+Allow: /work
+Allow: /testimonials
+Allow: /faq
+Allow: /contact
+Allow: /technologies
+
